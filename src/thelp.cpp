@@ -7,8 +7,6 @@
 
 #include <z3++.h>
 
-#include <iostream>
-
 
 extern "C" {
   Z3_ast convertAstToZ3(PyObject* tritonCtx, Z3_context z3Ctx, PyObject* pyNode) {
@@ -21,8 +19,6 @@ extern "C" {
     z3::expr expr = z3Ast.convert(astNode);
 
     Z3_ast ast = Z3_translate(expr.ctx(), expr, z3Ctx);
-
-    std::cout << "ASD " << node << " " << api << std::endl;
 
     return ast;
   }
