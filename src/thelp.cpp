@@ -10,8 +10,6 @@
 
 extern "C" {
   Z3_ast convertAstToZ3(PyObject* tritonCtx, Z3_context z3Ctx, PyObject* pyNode) {
-    triton::ast::AbstractNode* node = PyAstNode_AsAstNode(pyNode);
-
     triton::API* api = PyTritonContext_AsTritonContext(tritonCtx);
 
     triton::ast::TritonToZ3Ast z3Ast{api->getSymbolicEngine(), false};
